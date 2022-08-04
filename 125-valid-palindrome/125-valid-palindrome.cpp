@@ -1,16 +1,20 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-         if (s.empty())
-             return true; 
-        int z = s.size();
-        int i = 0;
-        while (i < z) {
-            
-            if (!isalnum(s[z])) { z--; continue; }
-            if (!isalnum(s[i])) { i++; continue; }   
-            if (tolower(s[i++]) != tolower(s[z--])) return false;
+   string su="";
+        // transform given string to lower case
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        
+        for(int i=0;i<s.length();i++){
+            if(s[i]>='a' and s[i]<='z')
+                su+=s[i];
+            else if(s[i]>='0' and s[i]<='9')
+                su+=s[i];
         }
-        return true;
+        // reverse string, to check whether it is palindrome
+        string rev=su;
+        reverse(rev.begin(),rev.end());
+        
+        return (rev==su);
     }
 };
