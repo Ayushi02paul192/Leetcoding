@@ -4,21 +4,13 @@
 class Solution {
 public:
     int firstBadVersion(int n) {
-        int start=1,end=n,mid;
-        int ans=INT_MIN;
-        while(start<=end)
-        {
-            mid=start+(end-start)/2;
-            if(isBadVersion(mid)==true)
-            {
-                // if(mid>ans)
-                    ans=mid;
-                end=mid-1;
-            }
-            else if(isBadVersion(mid)==false)
-                start=mid+1;
-            
+         int lower = 1, upper = n, mid;
+        while(lower < upper) {
+            mid = lower + (upper - lower) / 2;
+            if(!isBadVersion(mid))
+                lower = mid + 1;   /* Only one call to API */
+            else upper = mid;
         }
-        return ans;
+        return lower;
     }
 };
