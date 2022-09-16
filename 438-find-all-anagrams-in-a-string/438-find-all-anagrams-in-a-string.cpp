@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
-      vector<int> pv(26,0), sv(26,0), res;
+         vector<int> pv(26,0), sv(26,0), res;
         if(s.size() < p.size())
            return res;
         // fill pv, vector of counters for pattern string and sv, vector of counters for the sliding window
