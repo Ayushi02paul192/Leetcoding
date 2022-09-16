@@ -1,9 +1,9 @@
 class Solution {
 public:
     bool backspaceCompare(string s, string t) {
-        int k=0,p=0;
+         int k=0,p=0;
         for(int i=0;i<s.size();i++)
-             {
+        {
             if(s[i]=='#')
             {
                 k--;
@@ -40,6 +40,6 @@ public:
                     return false;
             }
             return true;
-        }
+    }
     }
 };
